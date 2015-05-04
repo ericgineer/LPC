@@ -1,0 +1,153 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4
+vcoeff_update
+!s110 1430713392
+!i10b 1
+!s100 dECNCcNZe@z3IKhYIN4023
+I2jh]oo<B@8]LVjH11iW;N1
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1430713034
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v
+L0 3
+Z2 OV;L;10.3c;59
+r1
+!s85 0
+31
+!s108 1430713392.804000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v|
+!i113 1
+Z3 o-work work
+vdivide
+Z4 !s110 1430703758
+!i10b 1
+!s100 4@UPK;>UZG^TX4CHFXJd[0
+IXc=X?zZ1f91U[FaN1kJUh1
+R1
+R0
+w1430697251
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1430703758.851000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide.v|
+!i113 1
+R3
+vdivide_stage
+R4
+!i10b 1
+!s100 DdG:M>:NaobkHS_C@oFAD2
+IRH3@L?zakinV9fZCAf7KW2
+R1
+R0
+w1430696777
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide_stage.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide_stage.v
+L0 4
+R2
+r1
+!s85 0
+31
+!s108 1430703758.945000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide_stage.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/divide_stage.v|
+!i113 1
+R3
+vLDR
+!s110 1430713642
+!i10b 1
+!s100 30S58bUJkjXQ^H1U@?m^e2
+IB1gBIf3Fh]k94JA[CXfNC2
+R1
+R0
+w1430713633
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1430713642.030000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
+!i113 1
+R3
+n@l@d@r
+vLDR_tb
+!s110 1430709407
+!i10b 1
+!s100 `Z2I8e]:7W^_:=W^2Y=Yn1
+Iz][?O[aY11:zeJal9LB9A3
+R1
+R0
+w1430709388
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR_tb.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR_tb.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1430709407.788000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR_tb.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR_tb.v|
+!i113 1
+R3
+n@l@d@r_tb
+vNumDen
+!s110 1430704474
+!i10b 1
+!s100 mPP8Faml@:JzE1BU`Le5l0
+I>7c?RfCM3S;m4S_`D77;U2
+R1
+R0
+w1430704461
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/NumDen.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/NumDen.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1430704474.159000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/NumDen.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/NumDen.v|
+!i113 1
+R3
+n@num@den
+vreflect_coeff
+!s110 1430708645
+!i10b 1
+!s100 _QH;oE_G_?A;AT`Kg7TdX3
+Iz>nzU8l56omz<Ei<jJDf30
+R1
+R0
+w1430706952
+8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/reflect_coeff.v
+FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/reflect_coeff.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1430708645.851000
+!s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/reflect_coeff.v|
+!s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/reflect_coeff.v|
+!i113 1
+R3
