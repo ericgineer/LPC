@@ -39,31 +39,31 @@ module coeff_update(input wire signed [31:0] aL_0,
 					output reg signed [15:0] a_next10,
 					output reg 				 vout);
 		
-		reg signed [31:0] aL_0_tmp1, aL_0_tmp2, aL_0_tmp3;		
-		reg signed [31:0] aL_1_tmp1, aL_1_tmp2, aL_1_tmp3;
-		reg signed [31:0] aL_2_tmp1, aL_2_tmp2, aL_2_tmp3;
-		reg signed [31:0] aL_3_tmp1, aL_3_tmp2, aL_3_tmp3;
-		reg signed [31:0] aL_4_tmp1, aL_4_tmp2, aL_4_tmp3;
-		reg signed [31:0] aL_5_tmp1, aL_5_tmp2, aL_5_tmp3;
-		reg signed [31:0] aL_6_tmp1, aL_6_tmp2, aL_6_tmp3;
-		reg signed [31:0] aL_7_tmp1, aL_7_tmp2, aL_7_tmp3;
-		reg signed [31:0] aL_8_tmp1, aL_8_tmp2, aL_8_tmp3;
-		reg signed [31:0] aL_9_tmp1, aL_9_tmp2, aL_9_tmp3;
-		reg signed [31:0] aL_10_tmp1, aL_10_tmp2, aL_10_tmp3;
+		reg signed [31:0] aL_0_tmp1, aL_0_tmp2;		
+		reg signed [31:0] aL_1_tmp1, aL_1_tmp2;
+		reg signed [31:0] aL_2_tmp1, aL_2_tmp2;
+		reg signed [31:0] aL_3_tmp1, aL_3_tmp2;
+		reg signed [31:0] aL_4_tmp1, aL_4_tmp2;
+		reg signed [31:0] aL_5_tmp1, aL_5_tmp2;
+		reg signed [31:0] aL_6_tmp1, aL_6_tmp2;
+		reg signed [31:0] aL_7_tmp1, aL_7_tmp2;
+		reg signed [31:0] aL_8_tmp1, aL_8_tmp2;
+		reg signed [31:0] aL_9_tmp1, aL_9_tmp2;
+		reg signed [31:0] aL_10_tmp1, aL_10_tmp2;
 		
-		reg signed [31:0] aR_0_tmp1, aR_0_tmp2, aR_0_tmp3;
-		reg signed [31:0] aR_1_tmp1, aR_1_tmp2, aR_1_tmp3;
-		reg signed [31:0] aR_2_tmp1, aR_2_tmp2, aR_2_tmp3;
-		reg signed [31:0] aR_3_tmp1, aR_3_tmp2, aR_3_tmp3;
-		reg signed [31:0] aR_4_tmp1, aR_4_tmp2, aR_4_tmp3;
-		reg signed [31:0] aR_5_tmp1, aR_5_tmp2, aR_5_tmp3;
-		reg signed [31:0] aR_6_tmp1, aR_6_tmp2, aR_6_tmp3;
-		reg signed [31:0] aR_7_tmp1, aR_7_tmp2, aR_7_tmp3;
-		reg signed [31:0] aR_8_tmp1, aR_8_tmp2, aR_8_tmp3;
-		reg signed [31:0] aR_9_tmp1, aR_9_tmp2, aR_9_tmp3;
-		reg signed [31:0] aR_10_tmp1, aR_10_tmp2, aR_10_tmp3;
+		reg signed [31:0] aR_0_tmp1, aR_0_tmp2;
+		reg signed [31:0] aR_1_tmp1, aR_1_tmp2;
+		reg signed [31:0] aR_2_tmp1, aR_2_tmp2;
+		reg signed [31:0] aR_3_tmp1, aR_3_tmp2;
+		reg signed [31:0] aR_4_tmp1, aR_4_tmp2;
+		reg signed [31:0] aR_5_tmp1, aR_5_tmp2;
+		reg signed [31:0] aR_6_tmp1, aR_6_tmp2;
+		reg signed [31:0] aR_7_tmp1, aR_7_tmp2;
+		reg signed [31:0] aR_8_tmp1, aR_8_tmp2;
+		reg signed [31:0] aR_9_tmp1, aR_9_tmp2;
+		reg signed [31:0] aR_10_tmp1, aR_10_tmp2;
 		
-		reg v1, v2, v3;
+		reg v1, v2;
 		
 		always @(posedge clk)
 		begin
@@ -71,91 +71,69 @@ module coeff_update(input wire signed [31:0] aL_0,
 			begin
 				aL_0_tmp1 <= 0;
 				aL_0_tmp2 <= 0;
-				aL_0_tmp3 <= 0;
 				
 				aL_1_tmp1 <= 0;
 				aL_1_tmp2 <= 0;
-				aL_1_tmp3 <= 0;
 				
 				aL_2_tmp1 <= 0;
 				aL_2_tmp2 <= 0;
-				aL_2_tmp3 <= 0;
 				
 				aL_3_tmp1 <= 0;
 				aL_3_tmp2 <= 0;
-				aL_3_tmp3 <= 0;
 				
 				aL_4_tmp1 <= 0;
 				aL_4_tmp2 <= 0;
-				aL_4_tmp3 <= 0;
 				
 				aL_5_tmp1 <= 0;
 				aL_5_tmp2 <= 0;
-				aL_5_tmp3 <= 0;
 				
 				aL_6_tmp1 <= 0;
 				aL_6_tmp2 <= 0;
-				aL_6_tmp3 <= 0;
 				
 				aL_7_tmp1 <= 0;
 				aL_7_tmp2 <= 0;
-				aL_7_tmp3 <= 0;
 				
 				aL_8_tmp1 <= 0;
 				aL_8_tmp2 <= 0;
-				aL_8_tmp3 <= 0;
 				
 				aL_9_tmp1 <= 0;
 				aL_9_tmp2 <= 0;
-				aL_9_tmp3 <= 0;
 				
 				aL_10_tmp1 <= 0;
 				aL_10_tmp2 <= 0;
-				aL_10_tmp3 <= 0;
 				
 				aR_0_tmp1 <= 0;
 				aR_0_tmp2 <= 0;
-				aR_0_tmp3 <= 0;
 				
 				aR_1_tmp1 <= 0;
 				aR_1_tmp2 <= 0;
-				aR_1_tmp3 <= 0;
 				
 				aR_2_tmp1 <= 0;
 				aR_2_tmp2 <= 0;
-				aR_2_tmp3 <= 0;
 				
 				aR_3_tmp1 <= 0;
 				aR_3_tmp2 <= 0;
-				aR_3_tmp3 <= 0;
 				
 				aR_4_tmp1 <= 0;
 				aR_4_tmp2 <= 0;
-				aR_4_tmp3 <= 0;
 				
 				aR_5_tmp1 <= 0;
 				aR_5_tmp2 <= 0;
-				aR_5_tmp3 <= 0;
 				
 				aR_6_tmp1 <= 0;
 				aR_6_tmp2 <= 0;
-				aR_6_tmp3 <= 0;
 				
 				aR_7_tmp1 <= 0;
 				aR_7_tmp2 <= 0;
-				aR_7_tmp3 <= 0;
 				
 				aR_8_tmp1 <= 0;
 				aR_8_tmp2 <= 0;
-				aR_8_tmp3 <= 0;
 				
 				aR_9_tmp1 <= 0;
 				aR_9_tmp2 <= 0;
-				aR_9_tmp3 <= 0;
 				
 				aR_10_tmp1 <= 0;
 				aR_10_tmp2 <= 0;
-				aR_10_tmp3 <= 0;
 				
 				a_next0 <= 0;
 				a_next1 <= 0;
@@ -171,7 +149,6 @@ module coeff_update(input wire signed [31:0] aL_0,
 				
 				v1 <= 0;
 				v2 <= 0;
-				v3 <= 0;
 				vout <= 0;
 			end else
 			begin
@@ -233,46 +210,18 @@ module coeff_update(input wire signed [31:0] aL_0,
 				end
 				if (v2)
 				begin
-					aL_0_tmp3 <= aL_0_tmp2;
-					aL_1_tmp3 <= aL_1_tmp2;
-					aL_2_tmp3 <= aL_2_tmp2;
-					aL_3_tmp3 <= aL_3_tmp2;
-					aL_4_tmp3 <= aL_4_tmp2;
-					aL_5_tmp3 <= aL_5_tmp2;
-					aL_6_tmp3 <= aL_6_tmp2;
-					aL_7_tmp3 <= aL_7_tmp2;
-					aL_8_tmp3 <= aL_8_tmp2;
-					aL_9_tmp3 <= aL_9_tmp2;
-					aL_10_tmp3 <= aL_10_tmp2;
-					
-					aR_0_tmp3 <= aR_0_tmp2 >>> 15;
-					aR_1_tmp3 <= aR_1_tmp2 >>> 15;
-					aR_2_tmp3 <= aR_2_tmp2 >>> 15;
-					aR_3_tmp3 <= aR_3_tmp2 >>> 15;
-					aR_4_tmp3 <= aR_4_tmp2 >>> 15;
-					aR_5_tmp3 <= aR_5_tmp2 >>> 15;
-					aR_6_tmp3 <= aR_6_tmp2 >>> 15;
-					aR_7_tmp3 <= aR_7_tmp2 >>> 15;
-					aR_8_tmp3 <= aR_8_tmp2 >>> 15;
-					aR_9_tmp3 <= aR_9_tmp2 >>> 15;
-					aR_10_tmp3 <= aR_10_tmp2 >>> 15;
-					
-					v3 <= v2;
-				end
-				if (v3)
-				begin
-					a_next0 <= (aL_0_tmp3 + aR_0_tmp3) >>> 15;
-					a_next1 <= (aL_1_tmp3 + aR_1_tmp3) >>> 15;
-					a_next2 <= (aL_2_tmp3 + aR_2_tmp3) >>> 15;
-					a_next3 <= (aL_3_tmp3 + aR_3_tmp3) >>> 15;
-					a_next4 <= (aL_4_tmp3 + aR_4_tmp3) >>> 15;
-					a_next5 <= (aL_5_tmp3 + aR_5_tmp3) >>> 15;
-					a_next6 <= (aL_6_tmp3 + aR_6_tmp3) >>> 15;
-					a_next7 <= (aL_7_tmp3 + aR_7_tmp3) >>> 15;
-					a_next8 <= (aL_8_tmp3 + aR_8_tmp3) >>> 15;
-					a_next9 <= (aL_9_tmp3 + aR_9_tmp3) >>> 15;
-					a_next10 <= (aL_10_tmp3 + aR_10_tmp3) >>> 15;
-					vout <= v3;
+					a_next0 <= (aL_0_tmp2 + aR_0_tmp2) >>> 15;
+					a_next1 <= (aL_1_tmp2 + aR_1_tmp2) >>> 15;
+					a_next2 <= (aL_2_tmp2 + aR_2_tmp2) >>> 15;
+					a_next3 <= (aL_3_tmp2 + aR_3_tmp2) >>> 15;
+					a_next4 <= (aL_4_tmp2 + aR_4_tmp2) >>> 15;
+					a_next5 <= (aL_5_tmp2 + aR_5_tmp2) >>> 15;
+					a_next6 <= (aL_6_tmp2 + aR_6_tmp2) >>> 15;
+					a_next7 <= (aL_7_tmp2 + aR_7_tmp2) >>> 15;
+					a_next8 <= (aL_8_tmp2 + aR_8_tmp2) >>> 15;
+					a_next9 <= (aL_9_tmp2 + aR_9_tmp2) >>> 15;
+					a_next10 <= (aL_10_tmp2 + aR_10_tmp2) >>> 15;
+					vout <= v2;
 				end else
 				begin
 					vout <= 1'b0;

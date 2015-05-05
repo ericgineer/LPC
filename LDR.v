@@ -64,7 +64,8 @@ module LDR(input wire signed [15:0] R0,
 				  S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11,
 				  S12 = 12, S13 = 13, S14 = 14, S15 = 15, S16 = 16,
 				  S17 = 17, S18 = 18, S19 = 19, S20 = 20, S21 = 21,
-				  S22 = 22, S23 = 23, S24 = 24, S25 = 25, S26 = 26;
+				  S22 = 22, S23 = 23, S24 = 24, S25 = 25, S26 = 26,
+				  S27 = 27, S28 = 28, S29 = 29;
 				  
 		reg run;
 				  			  
@@ -189,7 +190,20 @@ module LDR(input wire signed [15:0] R0,
 			R10_num <= R9_num;
 		end
 		
-		
+		always @(posedge clk)
+		begin
+			A0_tmp <= a0;
+			A1_tmp <= a1;
+			A2_tmp <= a2;
+			A3_tmp <= a3;
+			A4_tmp <= a4;
+			A5_tmp <= a5;
+			A6_tmp <= a6;
+			A7_tmp <= a7;
+			A8_tmp <= a8;
+			A9_tmp <= a9;
+			A10_tmp <= a10;
+		end
 			   
 		always @(posedge clk)
 		begin
@@ -281,11 +295,71 @@ module LDR(input wire signed [15:0] R0,
 							state <= S13;
 						 else
 							state <= S12;
-					S13: if(vout_cu)
+					S13: if (vout_cu)
 							state <= S14;
 						 else
 							state <= S13;
-					S14: state <= S14;
+					S14: if (S14)
+							state <= S15;
+						 else
+							state <= S14;
+					S15: if (S15)
+							state <= S16;
+						 else
+							state <= S15;
+					S16: if (S16)
+							state <= S17;
+						 else
+							state <= S16;
+					S17: if(vout_numden)
+							state <= S18;
+						 else
+							state <= S17;
+					S18: if (S18)
+							state <= S19;
+						 else
+							state <= S18;
+					S19: if (S19)
+							state <= S20;
+						 else
+							state <= S19;
+					S20: if (S20)
+							state <= S21;
+						 else
+							state <= S20;
+					S21: if (S21)
+							state <= S22;
+						 else
+							state <= S21;
+					S22: if (S22)
+							state <= S23;
+						 else
+							state <= S22;
+					S23: if (div_done)
+							state <= S24;
+						 else
+							state <= S23;
+					S24: if (S24)
+							state <= S25;
+						 else
+							state <= S24;
+					S25: if (S25)
+							state <= S26;
+						 else
+							state <= S25;
+					S26: if (vout_rc)
+							state <= S27;
+						 else
+							state <= S26;
+					S27: if (vout_cu)
+							state <= S28;
+						 else
+							state <= S27;
+					S28: if (S28)
+							state <= S29;
+						 else
+							state <= S28;
+					S29: state <= S29;
 				endcase
 			end
 		end
@@ -413,15 +487,57 @@ module LDR(input wire signed [15:0] R0,
 					end
 				S7: div_start <= 1'b1;
 				S8: div_start <= 1'b0;
-				S9: k_tmp <= Q;
-				S10: v_rc <= 1'b1;
+				S9: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+					end
+				S10: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
 				S11: v_rc <= 1'b0;
 				S12: v_cu <= 1'b1;
 				S13: v_cu <= 1'b0;
 				S14: begin 
-						A0_tmp <= a_next0;
-						A1_tmp <= b;
+						a0 <= a_next0;
+						a1 <= b;
+						rst_cu <= 1'b1;
 					 end
+				S15: begin 		// Iteration 2
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S16: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+					 end
+				S17: v_numden <= 1'b1;
+				S18: v_numden <= 1'b0;
+				S19: Rd_tmp <= Rd + 16'h4000;
+				S20: Rd_tmp <= Rd_tmp >>> 15;
+				S21: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S22: div_start <= 1'b1;
+				S23: div_start <= 1'b0;
+				S24: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a1;
+					 end
+				S25: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S26: v_rc <= 1'b0;
+				S27: v_cu <= 1'b1;
+				S28: v_cu <= 1'b0;
+				S29: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= b;
+					 end		
 			endcase
 		end
 endmodule

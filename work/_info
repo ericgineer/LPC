@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4
 vcoeff_update
-!s110 1430713392
+!s110 1430798620
 !i10b 1
-!s100 dECNCcNZe@z3IKhYIN4023
-I2jh]oo<B@8]LVjH11iW;N1
+!s100 dK2>ZCGV?oP:;dT4OL8>K0
+Io45eI045QbYaddm?TMX=L1
 Z1 V`JN@9S9cnhjKRR_L]QIcM3
 R0
-w1430713034
+w1430798610
 8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v
 FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v
 L0 3
@@ -23,7 +23,7 @@ Z2 OV;L;10.3c;59
 r1
 !s85 0
 31
-!s108 1430713392.804000
+!s108 1430798619.993000
 !s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v|
 !s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/coeff_update.v|
 !i113 1
@@ -69,13 +69,13 @@ r1
 !i113 1
 R3
 vLDR
-!s110 1430713642
+!s110 1430798827
 !i10b 1
-!s100 30S58bUJkjXQ^H1U@?m^e2
-IB1gBIf3Fh]k94JA[CXfNC2
+!s100 S]F;nIZNHbQlBAR9d3LN11
+IR7cRSESz=A:YAXIH50bz81
 R1
 R0
-w1430713633
+w1430795875
 8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
 FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
 L0 3
@@ -83,7 +83,7 @@ R2
 r1
 !s85 0
 31
-!s108 1430713642.030000
+!s108 1430798827.049000
 !s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
 !s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
 !i113 1
