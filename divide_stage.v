@@ -25,7 +25,7 @@ module divide_stage(  input wire signed  [31:0]      A,
 		reg signed [1:0] q_i;
 		reg               v1, v2, v3, v4;
 		
-		always @(posedge clk, rst)
+		always @(posedge clk)
 		begin
 			if (rst)
 			begin

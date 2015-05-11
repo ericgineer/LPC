@@ -89,13 +89,13 @@ r1
 !i113 1
 R4
 vLDR
-R5
+!s110 1431321797
 !i10b 1
-!s100 QZTHhd2]eoQdb>^mak2HN1
-IZ<Mj3mB<1K8GI_ZN0TDO@0
+!s100 :8Pd_86R6LA<f]:BWG0Ca1
+ISWeW?39hbgRLV?;fG[oUE0
 R2
 R0
-w1431302771
+w1431321790
 8C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
 FC:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v
 L0 3
@@ -103,7 +103,7 @@ R3
 r1
 !s85 0
 31
-!s108 1431319581.105000
+!s108 1431321797.459000
 !s107 C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
 !s90 -reportprogress|300|-work|work|C:/Users/Eric/Documents/Altera/Verilog_stuff/LPC4/LDR.v|
 !i113 1

@@ -192,45 +192,6 @@ module LDR(input wire signed [15:0] R0,
 						.a_next9(a_next9),
 						.a_next10(a_next10),
 						.vout(vout_cu));
-				   
-		// R shift register
-		always @(posedge R_update)
-		begin
-			num_tmp1 <= num_tmp0;
-			num_tmp2 <= num_tmp1;
-			num_tmp3 <= num_tmp2;
-			num_tmp4 <= num_tmp3;
-			num_tmp5 <= num_tmp4;
-			num_tmp6 <= num_tmp5;
-			num_tmp7 <= num_tmp6;
-			num_tmp8 <= num_tmp7;
-			R0_num <= num_tmp8;
-			R1_num <= R0_num;
-		    R2_num <= R1_num;
-			R3_num <= R2_num;
-			R4_num <= R3_num;
-			R5_num <= R4_num;
-			R6_num <= R5_num;
-			R7_num <= R6_num;
-			R8_num <= R7_num;
-			R9_num <= R8_num;
-			R10_num <= R9_num;
-		end
-		
-		always @(posedge clk)
-		begin
-			A0_tmp <= a0;
-			A1_tmp <= a1;
-			A2_tmp <= a2;
-			A3_tmp <= a3;
-			A4_tmp <= a4;
-			A5_tmp <= a5;
-			A6_tmp <= a6;
-			A7_tmp <= a7;
-			A8_tmp <= a8;
-			A9_tmp <= a9;
-			A10_tmp <= a10;
-		end
 			   
 		always @(posedge clk)
 		begin
@@ -874,7 +835,7 @@ module LDR(input wire signed [15:0] R0,
 			end
 		end
 			
-		always @(state)
+		always @(posedge clk)
 		begin
 			case (state)
 				S0: begin
@@ -923,15 +884,6 @@ module LDR(input wire signed [15:0] R0,
 						R8_den <= 16'b0;
 						R9_den <= 16'b0;
 						R10_den <= 16'b0;
-						num_tmp0 <= 16'b0;
-						num_tmp1 <= 16'b0;
-						num_tmp2 <= 16'b0;
-						num_tmp3 <= 16'b0;
-						num_tmp4 <= 16'b0;
-						num_tmp5 <= 16'b0;
-						num_tmp6 <= 16'b0;
-						num_tmp7 <= 16'b0;
-						num_tmp8 <= 16'b0;
 						a0 <= 16'b0;
 						a1 <= 16'b0;
 						a2 <= 16'b0;
@@ -970,17 +922,9 @@ module LDR(input wire signed [15:0] R0,
 						run <= 1'b1;
 					end
 				S2: begin
-						num_tmp0 <= R10_tmp;
-						num_tmp1 <= R9_tmp;
-						num_tmp2 <= R8_tmp;
-						num_tmp3 <= R7_tmp;
-						num_tmp4 <= R6_tmp;
-						num_tmp5 <= R5_tmp;
-						num_tmp6 <= R4_tmp;
-						num_tmp7 <= R3_tmp;
-						num_tmp8 <= R2_tmp;
 						R0_num   <= R1_tmp;
 						R1_num   <= R0_tmp;
+						
 						R0_den <= R0_tmp;
 						R1_den <= R1_tmp;
 						a0 <= 16'd8192;
@@ -1012,16 +956,21 @@ module LDR(input wire signed [15:0] R0,
 				S14: begin 
 						a0 <= a_next0;
 						a1 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S15: begin 		// Iteration 2
-						R_update <= 1'b1;
+						R0_num <= R2_tmp;
+						R1_num <= R1_tmp;
+						R2_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
+						R2_den <= R2_tmp;
 						rst_cu <= 1'b0;
 					 end
-				S16: begin
-						R_update <= 1'b0;
-						R2_den <= R2_tmp;
-					 end
+				S16: ;
 				S17: v_numden <= 1'b1;
 				S18: v_numden <= 1'b0;
 				S19: Rd_tmp <= Rd + 16'h4000;
@@ -1048,17 +997,24 @@ module LDR(input wire signed [15:0] R0,
 						a0 <= a_next0;
 						a1 <= a_next1;
 						a2 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S30: begin 		// Iteration 3
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S31: begin
-						R_update <= 1'b0;
+						R0_num <= R3_tmp;
+						R1_num <= R2_tmp;
+						R2_num <= R1_tmp;
+						R3_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S31: ;
 				S32: v_numden <= 1'b1;
 				S33: v_numden <= 1'b0;
 				S34: Rd_tmp <= Rd + 16'h4000;
@@ -1087,18 +1043,27 @@ module LDR(input wire signed [15:0] R0,
 						a1 <= a_next1;
 						a2 <= a_next2;
 						a3 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S45: begin 		// Iteration 4
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S46: begin
-						R_update <= 1'b0;
+						R0_num <= R4_tmp;
+						R1_num <= R3_tmp;
+						R2_num <= R2_tmp;
+						R3_num <= R1_tmp;
+						R4_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S46: ;
 				S47: v_numden <= 1'b1;
 				S48: v_numden <= 1'b0;
 				S49: Rd_tmp <= Rd + 16'h4000;
@@ -1129,19 +1094,30 @@ module LDR(input wire signed [15:0] R0,
 						a2 <= a_next2;
 						a3 <= a_next3;
 						a4 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S60: begin 		// Iteration 5
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S61: begin
-						R_update <= 1'b0;
+						R0_num <= R5_tmp;
+						R1_num <= R4_tmp;
+						R2_num <= R3_tmp;
+						R3_num <= R2_tmp;
+						R4_num <= R1_tmp;
+						R5_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
 						R5_den <= R5_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S61: ;
 				S62: v_numden <= 1'b1;
 				S63: v_numden <= 1'b0;
 				S64: Rd_tmp <= Rd + 16'h4000;
@@ -1174,20 +1150,33 @@ module LDR(input wire signed [15:0] R0,
 						a3 <= a_next3;
 						a4 <= a_next4;
 						a5 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S75: begin 		// Iteration 6
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S76: begin
-						R_update <= 1'b0;
+						R0_num <= R6_tmp;
+						R1_num <= R5_tmp;
+						R2_num <= R4_tmp;
+						R3_num <= R3_tmp;
+						R4_num <= R2_tmp;
+						R5_num <= R1_tmp;
+						R6_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
 						R5_den <= R5_tmp;
 						R6_den <= R6_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S76: ;
 				S77: v_numden <= 1'b1;
 				S78: v_numden <= 1'b0;
 				S79: Rd_tmp <= Rd + 16'h4000;
@@ -1222,21 +1211,36 @@ module LDR(input wire signed [15:0] R0,
 						a4 <= a_next4;
 						a5 <= a_next5;
 						a6 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= a_next5;
+						A6_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S90: begin 		// Iteration 7
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S91: begin
-						R_update <= 1'b0;
+						R0_num <= R7_tmp;
+						R1_num <= R6_tmp;
+						R2_num <= R5_tmp;
+						R3_num <= R4_tmp;
+						R4_num <= R3_tmp;
+						R5_num <= R2_tmp;
+						R6_num <= R1_tmp;
+						R7_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
 						R5_den <= R5_tmp;
 						R6_den <= R6_tmp;
 						R7_den <= R7_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S91: ;
 				S92: v_numden <= 1'b1;
 				S93: v_numden <= 1'b0;
 				S94: Rd_tmp <= Rd + 16'h4000;
@@ -1273,14 +1277,29 @@ module LDR(input wire signed [15:0] R0,
 						a5 <= a_next5;
 						a6 <= a_next6;
 						a7 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= a_next5;
+						A6_tmp <= a_next6;
+						A7_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S105: begin 		// Iteration 8
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S106: begin
-						R_update <= 1'b0;
+						R0_num <= R8_tmp;
+						R1_num <= R7_tmp;
+						R2_num <= R6_tmp;
+						R3_num <= R5_tmp;
+						R4_num <= R4_tmp;
+						R5_num <= R3_tmp;
+						R6_num <= R2_tmp;
+						R7_num <= R1_tmp;
+						R8_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
@@ -1288,7 +1307,9 @@ module LDR(input wire signed [15:0] R0,
 						R6_den <= R6_tmp;
 						R7_den <= R7_tmp;
 						R8_den <= R8_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S106: ;
 				S107: v_numden <= 1'b1;
 				S108: v_numden <= 1'b0;
 				S109: Rd_tmp <= Rd + 16'h4000;
@@ -1327,14 +1348,31 @@ module LDR(input wire signed [15:0] R0,
 						a6 <= a_next6;
 						a7 <= a_next7;
 						a8 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= a_next5;
+						A6_tmp <= a_next6;
+						A7_tmp <= a_next7;
+						A8_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S120: begin 		// Iteration 9
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S121: begin
-						R_update <= 1'b0;
+						R0_num <= R9_tmp;
+						R1_num <= R8_tmp;
+						R2_num <= R7_tmp;
+						R3_num <= R6_tmp;
+						R4_num <= R5_tmp;
+						R5_num <= R4_tmp;
+						R6_num <= R3_tmp;
+						R7_num <= R2_tmp;
+						R8_num <= R1_tmp;
+						R9_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
@@ -1343,7 +1381,9 @@ module LDR(input wire signed [15:0] R0,
 						R7_den <= R7_tmp;
 						R8_den <= R8_tmp;
 						R9_den <= R9_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S121: ;
 				S122: v_numden <= 1'b1;
 				S123: v_numden <= 1'b0;
 				S124: Rd_tmp <= Rd + 16'h4000;
@@ -1384,14 +1424,33 @@ module LDR(input wire signed [15:0] R0,
 						a7 <= a_next7;
 						a8 <= a_next8;
 						a9 <= b;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= a_next5;
+						A6_tmp <= a_next6;
+						A7_tmp <= a_next7;
+						A8_tmp <= a_next8;
+						A9_tmp <= b;
 						rst_cu <= 1'b1;
 					 end
 				S135: begin 		// Iteration 10
-						R_update <= 1'b1;
-						rst_cu <= 1'b0;
-					 end
-				S136: begin
-						R_update <= 1'b0;
+						R0_num <= R10_tmp;
+						R1_num <= R9_tmp;
+						R2_num <= R8_tmp;
+						R3_num <= R7_tmp;
+						R4_num <= R6_tmp;
+						R5_num <= R5_tmp;
+						R6_num <= R4_tmp;
+						R7_num <= R3_tmp;
+						R8_num <= R2_tmp;
+						R9_num <= R1_tmp;
+						R10_num <= R0_tmp;
+						
+						R0_den <= R0_tmp;
+						R1_den <= R1_tmp;
 						R2_den <= R2_tmp;
 						R3_den <= R3_tmp;
 						R4_den <= R4_tmp;
@@ -1400,8 +1459,9 @@ module LDR(input wire signed [15:0] R0,
 						R7_den <= R7_tmp;
 						R8_den <= R8_tmp;
 						R9_den <= R9_tmp;
-						R10_den <= R10_tmp;
+						rst_cu <= 1'b0;
 					 end
+				S136: ;
 				S137: v_numden <= 1'b1;
 				S138: v_numden <= 1'b0;
 				S139: Rd_tmp <= Rd + 16'h4000;
@@ -1460,7 +1520,98 @@ module LDR(input wire signed [15:0] R0,
 						A8 <= a8;
 						A9 <= a9;
 						A10 <= a10;
+						A0_tmp <= a_next0;
+						A1_tmp <= a_next1;
+						A2_tmp <= a_next2;
+						A3_tmp <= a_next3;
+						A4_tmp <= a_next4;
+						A5_tmp <= a_next5;
+						A6_tmp <= a_next6;
+						A7_tmp <= a_next7;
+						A8_tmp <= a_next8;
+						A9_tmp <= a_next9;
+						A10_tmp <= a_next10;
 					end
+				default: begin
+							A0 <= 16'b0;
+							A1 <= 16'b0;
+							A2 <= 16'b0;
+							A3 <= 16'b0;
+							A4 <= 16'b0;
+							A5 <= 16'b0;
+							A6 <= 16'b0;
+							A7 <= 16'b0;
+							A8 <= 16'b0;
+							A9 <= 16'b0;
+							A10 <= 16'b0;
+							run <= 1'b0;
+							done <= 1'b0;
+							div_rst <= 1'b0;
+							div_start <= 1'b0;
+							v_numden <= 1'b0;
+							v_rc <= 1'b0;
+							v_cu <= 1'b0;
+							rst_numden <= 1'b0;
+							rst_rc <= 1'b0;
+							rst_cu <= 1'b0;
+							A <= 1'b0;
+							B <= 1'b0;
+							R0_num <= 16'b0;
+							R1_num <= 16'b0;
+							R2_num <= 16'b0;
+							R3_num <= 16'b0;
+							R4_num <= 16'b0;
+							R5_num <= 16'b0;
+							R6_num <= 16'b0;
+							R7_num <= 16'b0;
+							R8_num <= 16'b0;
+							R9_num <= 16'b0;
+							R10_num <= 16'b0;
+							R0_den <= 16'b0;
+							R1_den <= 16'b0;
+							R2_den <= 16'b0;
+							R3_den <= 16'b0;
+							R4_den <= 16'b0;
+							R5_den <= 16'b0;
+							R6_den <= 16'b0;
+							R7_den <= 16'b0;
+							R8_den <= 16'b0;
+							R9_den <= 16'b0;
+							R10_den <= 16'b0;
+							a0 <= 16'b0;
+							a1 <= 16'b0;
+							a2 <= 16'b0;
+							a3 <= 16'b0;
+							a4 <= 16'b0;
+							a5 <= 16'b0;
+							a6 <= 16'b0;
+							a7 <= 16'b0;
+							a8 <= 16'b0;
+							a9 <= 16'b0;
+							a10 <= 32'b0;
+							aR_0 <= 32'b0;
+							aR_1 <= 32'b0;
+							aR_2 <= 32'b0;
+							aR_3 <= 32'b0;
+							aR_4 <= 32'b0;
+							aR_5 <= 32'b0;
+							aR_6 <= 32'b0;
+							aR_7 <= 32'b0;
+							aR_8 <= 32'b0;
+							aR_9 <= 32'b0;
+							aR_10 <= 32'b0;
+							A0_tmp <= 32'b0;
+							A1_tmp <= 32'b0;
+							A2_tmp <= 32'b0;
+							A3_tmp <= 32'b0;
+							A4_tmp <= 32'b0;
+							A5_tmp <= 32'b0;
+							A6_tmp <= 32'b0;
+							A7_tmp <= 32'b0;
+							A8_tmp <= 32'b0;
+							A9_tmp <= 32'b0;
+							A10_tmp <= 32'b0;
+						end
 			endcase
 		end
 endmodule
