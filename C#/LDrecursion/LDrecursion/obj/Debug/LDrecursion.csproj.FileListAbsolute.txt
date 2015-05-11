@@ -1,0 +1,6 @@
+c:\users\eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\bin\Debug\LDrecursion.exe.config
+c:\users\eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\bin\Debug\LDrecursion.exe
+c:\users\eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\bin\Debug\LDrecursion.pdb
+c:\users\eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\obj\Debug\LDrecursion.exe
+c:\users\eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\obj\Debug\LDrecursion.pdb
+C:\Users\Eric\documents\visual studio 2013\Projects\LDrecursion\LDrecursion\obj\Debug\LDrecursion.csprojResolveAssemblyReference.cache

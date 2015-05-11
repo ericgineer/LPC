@@ -59,13 +59,40 @@ module LDR(input wire signed [15:0] R0,
 		reg rst_cu, v_cu;
 		wire vout_cu;
 			   
-		reg [4:0] state;
+		reg [15:0] state;
 		parameter S0 = 0, S1 = 1, S2 = 2, S3 = 3, S4 = 4, S5 = 5,
 				  S6 = 6, S7 = 7, S8 = 8, S9 = 9, S10 = 10, S11 = 11,
 				  S12 = 12, S13 = 13, S14 = 14, S15 = 15, S16 = 16,
 				  S17 = 17, S18 = 18, S19 = 19, S20 = 20, S21 = 21,
 				  S22 = 22, S23 = 23, S24 = 24, S25 = 25, S26 = 26,
-				  S27 = 27, S28 = 28, S29 = 29;
+				  S27 = 27, S28 = 28, S29 = 29, S30 = 30, S31 = 31,
+				  S32 = 32, S33 = 33, S34 = 34, S35 = 35, S36 = 36,
+				  S37 = 37, S38 = 38, S39 = 39, S40 = 40, S41 = 41,
+				  S42 = 42, S43 = 43, S44 = 44, S45 = 45, S46 = 46,
+				  S47 = 47, S48 = 48, S49 = 49, S50 = 50, S51 = 51,
+				  S52 = 52, S53 = 53, S54 = 54, S55 = 55, S56 = 56,
+				  S57 = 57, S58 = 58, S59 = 59, S60 = 60, S61 = 61,
+				  S62 = 62, S63 = 63, S64 = 64, S65 = 65, S66 = 66,
+				  S67 = 67, S68 = 68, S69 = 69, S70 = 70, S71 = 71,
+				  S72 = 72, S73 = 73, S74 = 74, S75 = 75, S76 = 76,
+				  S77 = 77, S78 = 78, S79 = 79, S80 = 80, S81 = 81,
+				  S82 = 82, S83 = 83, S84 = 84, S85 = 85, S86 = 86,
+				  S87 = 87, S88 = 88, S89 = 89, S90 = 90, S91 = 91,
+				  S92 = 92, S93 = 93, S94 = 94, S95 = 95, S96 = 96,
+				  S97 = 97, S98 = 98, S99 = 99, S100 = 100, S101 = 101,
+				  S102 = 102, S103 = 103, S104 = 104, S105 = 105,
+				  S106 = 106, S107 = 107, S108 = 108, S109 = 109,
+				  S110 = 110, S111 = 111, S112 = 112, S113 = 113,
+				  S114 = 114, S115 = 115, S116 = 116, S117 = 117,
+				  S118 = 118, S119 = 119, S120 = 120, S121 = 121,
+				  S122 = 122, S123 = 123, S124 = 124, S125 = 125,
+				  S126 = 126, S127 = 127, S128 = 128, S129 = 129,
+				  S130 = 130, S131 = 131, S132 = 132, S133 = 133,
+				  S134 = 134, S135 = 135, S136 = 136, S137 = 137,
+				  S138 = 138, S139 = 139, S140 = 140, S141 = 141,
+				  S142 = 142, S143 = 143, S144 = 144, S145 = 145,
+				  S146 = 146, S147 = 147, S148 = 148, S149 = 149,
+				  S150 = 150;
 				  
 		reg run;
 				  			  
@@ -247,7 +274,7 @@ module LDR(input wire signed [15:0] R0,
 							state <= S1;
 						else
 							state <= S0;
-					S1: if (S1)
+					S1: if (S1)				// Iteration 1
 							state <= S2;
 						else
 							state <= S1;
@@ -303,7 +330,7 @@ module LDR(input wire signed [15:0] R0,
 							state <= S15;
 						 else
 							state <= S14;
-					S15: if (S15)
+					S15: if (S15)			// Iteration 2
 							state <= S16;
 						 else
 							state <= S15;
@@ -359,7 +386,490 @@ module LDR(input wire signed [15:0] R0,
 							state <= S29;
 						 else
 							state <= S28;
-					S29: state <= S29;
+					S29: if (S29)
+							state <= S30;
+					     else
+							state <= S29;
+					S30: if (S30)			// Iteration 3
+							state <= S31;
+						 else
+							state <= S30;
+					S31: if (S31)
+							state <= S32;
+						 else
+							state <= S31;
+					S32: if (S32)
+							state <= S33;
+						 else
+							state <= S32;
+					S33: if (vout_numden)
+							state <= S34;
+						 else
+							state <= S33;
+					S34: if (S34)
+							state <= S35;
+						 else
+							state <= S34;
+					S35: if (S35)
+							state <= S36;
+						 else
+							state <= S35;
+					S36: if (S6)
+							state <= S37;
+						 else
+							state <= S36;
+					S37: if (S37)
+							state <= S38;
+						 else
+							state <= S37;
+					S38: if (div_done)
+							state <= S39;
+						 else
+							state <= S38;
+					S39: if (S39)
+							state <= S40;
+						 else
+							state <= S39;
+					S40: if (S40)
+							state <= S41;
+						 else
+							state <= S40;
+					S41: if (vout_rc)
+							state <= S42;
+						 else
+							state <= S41;
+					S42: if (S42)
+							state <= S43;
+						 else
+							state <= S42;
+					S43: if (vout_cu)
+							state <= S44;
+						 else
+							state <= S43;
+					S44: if (S44)
+							state <= S45;
+						 else
+							state <= S44;
+					S45: if (S45)			// Iteration 4
+							state <= S46;
+						 else
+							state <= S45;
+					S46: if (S46)
+							state <= S47;
+						 else
+							state <= S46;
+					S47: if (S47)
+							state <= S48;
+						 else
+							state <= S47;
+					S48: if (vout_numden)
+							state <= S49;
+						 else
+							state <= S48;
+					S49: if (S49)
+							state <= S50;
+						 else
+							state <= S49;
+					S50: if (S50)
+							state <= S51;
+						 else
+							state <= S50;
+					S51: if (S51)
+							state <= S52;
+						 else
+							state <= S51;
+					S52: if (S52)
+							state <= S53;
+						 else
+							state <= S52;
+					S53: if (div_done)
+							state <= S54;
+						 else
+							state <= S53;
+					S54: if (S54)
+							state <= S55;
+						 else
+							state <= S54;
+					S55: if (S55)
+							state <= S56;
+						 else
+							state <= S55;
+					S56: if (vout_rc)
+							state <= S57;
+						 else
+							state <= S56;
+					S57: if (S57)
+							state <= S58;
+						 else
+							state <= S57;
+					S58: if (vout_cu)
+							state <= S59;
+						 else
+							state <= S58;
+					S59: if (S59)
+							state <= S60;
+						 else
+							state <= S59;
+					S60: if (S60)			// Iteration 5
+							state <= S61;
+						 else
+							state <= S60;
+					S61: if (S61)
+							state <= S62;
+						 else
+							state <= S61;
+					S62: if (S62)
+							state <= S63;
+						 else
+							state <= S62;
+					S63: if (vout_numden)
+							state <= S64;
+						 else
+							state <= S63;
+					S64: if (S64)
+							state <= S65;
+						 else
+							state <= S64;
+					S65: if (S65)
+							state <= S66;
+						 else
+							state <= S65;
+					S66: if (S66)
+							state <= S67;
+						 else
+							state <= S66;
+					S67: if (S67)
+							state <= S68;
+						 else
+							state <= S67;
+					S68: if (div_done)
+							state <= S69;
+						 else
+							state <= S68;
+					S69: if (S69)
+							state <= S70;
+						 else
+							state <= S69;
+					S70: if (S70)
+							state <= S71;
+						 else
+							state <= S70;
+					S71: if (vout_rc)
+							state <= S72;
+						 else
+							state <= S71;
+					S72: if (S72)
+							state <= S73;
+						 else
+							state <= S72;
+					S73: if (vout_cu)
+							state <= S74;
+						 else
+							state <= S73;
+					S74: if (S74)
+							state <= S75;
+						 else
+							state <= S74;
+					S75: if (S75)			// Iteration 6
+							state <= S76;
+						 else
+							state <= S75;
+					S76: if (S76)
+							state <= S77;
+						 else
+							state <= S76;
+					S77: if (S77)
+							state <= S78;
+						 else
+							state <= S77;
+					S78: if (vout_numden)
+							state <= S79;
+						 else
+							state <= S78;
+					S79: if (S79)
+							state <= S80;
+						 else
+							state <= S79;
+					S80: if (S80)
+							state <= S81;
+						 else
+							state <= S80;
+					S81: if (S81)
+							state <= S82;
+						 else
+							state <= S81;
+					S82: if (S82)
+							state <= S83;
+						 else
+							state <= S82;
+					S83: if (div_done)
+							state <= S84;
+						 else
+							state <= S83;
+					S84: if (S84)
+							state <= S85;
+						 else
+							state <= S84;
+					S85: if (S85)
+							state <= S86;
+						 else
+							state <= S85;
+					S86: if (vout_rc)
+							state <= S87;
+						 else
+							state <= S86;
+					S87: if (S87)
+							state <= S88;
+						 else
+							state <= S87;
+					S88: if (vout_cu)
+							state <= S89;
+						 else
+							state <= S88;
+					S89: if (S89)
+							state <= S90;
+						 else
+							state <= S89;
+					S90: if (S90)			// Iteration 7
+							state <= S91;
+						 else
+							state <= S90;
+					S91: if (S91)
+							state <= S92;
+						 else
+							state <= S91;
+					S92: if (S92)
+							state <= S93;
+						 else
+							state <= S92;
+					S93: if (vout_numden)
+							state <= S94;
+						 else
+							state <= S93;
+					S94: if (S94)
+							state <= S95;
+						 else
+							state <= S94;
+					S95: if (S95)
+							state <= S96;
+						 else
+							state <= S95;
+					S96: if (S96)
+							state <= S97;
+						 else
+							state <= S96;
+					S97: if (S97)
+							state <= S98;
+						 else
+							state <= S97;
+					S98: if (div_done)
+							state <= S99;
+						 else
+							state <= S98;
+					S99: if (S99)
+							state <= S100;
+						 else
+							state <= S99;
+					S100: if (S100)
+							state <= S101;
+						  else
+							state <= S100;
+					S101: if (vout_rc)
+							state <= S102;
+						  else
+							state <= S101;
+					S102: if (S102)
+							state <= S103;
+						  else
+							state <= S102;
+					S103: if (vout_cu)
+							state <= S104;
+						  else
+							state <= S103;
+					S104: if (S104)
+							state <= S105;
+						  else
+							state <= S104;
+					S105: if (S105)			// Iteration 8
+							state <= S106;
+						 else
+							state <= S105;
+					S106: if (S106)
+							state <= S107;
+						 else
+							state <= S106;
+					S107: if (S107)
+							state <= S108;
+						 else
+							state <= S107;
+					S108: if (vout_numden)
+							state <= S109;
+						 else
+							state <= S108;
+					S109: if (S109)
+							state <= S110;
+						 else
+							state <= S109;
+					S110: if (S110)
+							state <= S111;
+						 else
+							state <= S110;
+					S111: if (S111)
+							state <= S112;
+						 else
+							state <= S111;
+					S112: if (S112)
+							state <= S113;
+						 else
+							state <= S112;
+					S113: if (div_done)
+							state <= S114;
+						 else
+							state <= S113;
+					S114: if (S114)
+							state <= S115;
+						 else
+							state <= S114;
+					S115: if (S115)
+							state <= S116;
+						  else
+							state <= S115;
+					S116: if (vout_rc)
+							state <= S117;
+						  else
+							state <= S116;
+					S117: if (S117)
+							state <= S118;
+						  else
+							state <= S117;
+					S118: if (vout_cu)
+							state <= S119;
+						  else
+							state <= S118;
+					S119: if (S119)
+							state <= S120;
+						  else
+							state <= S119;
+					S120: if (S120)			// Iteration 9
+							state <= S121;
+						 else
+							state <= S120;
+					S121: if (S121)
+							state <= S122;
+						 else
+							state <= S121;
+					S122: if (S122)
+							state <= S123;
+						 else
+							state <= S122;
+					S123: if (vout_numden)
+							state <= S124;
+						 else
+							state <= S123;
+					S124: if (S124)
+							state <= S125;
+						 else
+							state <= S124;
+					S125: if (S125)
+							state <= S126;
+						 else
+							state <= S125;
+					S126: if (S126)
+							state <= S127;
+						 else
+							state <= S126;
+					S127: if (S127)
+							state <= S128;
+						 else
+							state <= S127;
+					S128: if (div_done)
+							state <= S129;
+						 else
+							state <= S128;
+					S129: if (S129)
+							state <= S130;
+						 else
+							state <= S129;
+					S130: if (S130)
+							state <= S131;
+						  else
+							state <= S130;
+					S131: if (vout_rc)
+							state <= S132;
+						  else
+							state <= S131;
+					S132: if (S132)
+							state <= S133;
+						  else
+							state <= S132;
+					S133: if (vout_cu)
+							state <= S134;
+						  else
+							state <= S133;
+					S134: if (S134)
+							state <= S135;
+						  else
+							state <= S134;
+					S135: if (S135)			// Iteration 10
+							state <= S136;
+						 else
+							state <= S135;
+					S136: if (S136)
+							state <= S137;
+						 else
+							state <= S136;
+					S137: if (S137)
+							state <= S138;
+						 else
+							state <= S137;
+					S138: if (vout_numden)
+							state <= S139;
+						 else
+							state <= S138;
+					S139: if (S139)
+							state <= S140;
+						 else
+							state <= S139;
+					S140: if (S140)
+							state <= S141;
+						 else
+							state <= S140;
+					S141: if (S141)
+							state <= S142;
+						 else
+							state <= S141;
+					S142: if (S142)
+							state <= S143;
+						 else
+							state <= S142;
+					S143: if (div_done)
+							state <= S144;
+						 else
+							state <= S143;
+					S144: if (S144)
+							state <= S145;
+						 else
+							state <= S144;
+					S145: if (S145)
+							state <= S146;
+						  else
+							state <= S145;
+					S146: if (vout_rc)
+							state <= S147;
+						  else
+							state <= S146;
+					S147: if (S147)
+							state <= S148;
+						  else
+							state <= S147;
+					S148: if (vout_cu)
+							state <= S149;
+						  else
+							state <= S148;
+					S149: if (S149)
+							state <= S150;
+						  else
+							state <= S149;
 				endcase
 			end
 		end
@@ -368,6 +878,7 @@ module LDR(input wire signed [15:0] R0,
 		begin
 			case (state)
 				S0: begin
+						A0 <= 16'b0;
 						A1 <= 16'b0;
 						A2 <= 16'b0;
 						A3 <= 16'b0;
@@ -537,7 +1048,419 @@ module LDR(input wire signed [15:0] R0,
 						a0 <= a_next0;
 						a1 <= a_next1;
 						a2 <= b;
-					 end		
+						rst_cu <= 1'b1;
+					 end
+				S30: begin 		// Iteration 3
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S31: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+					 end
+				S32: v_numden <= 1'b1;
+				S33: v_numden <= 1'b0;
+				S34: Rd_tmp <= Rd + 16'h4000;
+				S35: Rd_tmp <= Rd_tmp >>> 15;
+				S36: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S37: div_start <= 1'b1;
+				S38: div_start <= 1'b0;
+				S39: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a2;
+						aR_2 <= a1;
+					 end
+				S40: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S41: v_rc <= 1'b0;
+				S42: v_cu <= 1'b1;
+				S43: v_cu <= 1'b0;
+				S44: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S45: begin 		// Iteration 4
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S46: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+					 end
+				S47: v_numden <= 1'b1;
+				S48: v_numden <= 1'b0;
+				S49: Rd_tmp <= Rd + 16'h4000;
+				S50: Rd_tmp <= Rd_tmp >>> 15;
+				S51: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S52: div_start <= 1'b1;
+				S53: div_start <= 1'b0;
+				S54: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a3;
+						aR_2 <= a2;
+						aR_3 <= a1;
+					 end
+				S55: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S56: v_rc <= 1'b0;
+				S57: v_cu <= 1'b1;
+				S58: v_cu <= 1'b0;
+				S59: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S60: begin 		// Iteration 5
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S61: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+					 end
+				S62: v_numden <= 1'b1;
+				S63: v_numden <= 1'b0;
+				S64: Rd_tmp <= Rd + 16'h4000;
+				S65: Rd_tmp <= Rd_tmp >>> 15;
+				S66: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S67: div_start <= 1'b1;
+				S68: div_start <= 1'b0;
+				S69: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a4;
+						aR_2 <= a3;
+						aR_3 <= a2;
+						aR_4 <= a1;
+					 end
+				S70: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S71: v_rc <= 1'b0;
+				S72: v_cu <= 1'b1;
+				S73: v_cu <= 1'b0;
+				S74: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S75: begin 		// Iteration 6
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S76: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+						R6_den <= R6_tmp;
+					 end
+				S77: v_numden <= 1'b1;
+				S78: v_numden <= 1'b0;
+				S79: Rd_tmp <= Rd + 16'h4000;
+				S80: Rd_tmp <= Rd_tmp >>> 15;
+				S81: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S82: div_start <= 1'b1;
+				S83: div_start <= 1'b0;
+				S84: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a5;
+						aR_2 <= a4;
+						aR_3 <= a3;
+						aR_4 <= a2;
+						aR_5 <= a1;
+					 end
+				S85: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S86: v_rc <= 1'b0;
+				S87: v_cu <= 1'b1;
+				S88: v_cu <= 1'b0;
+				S89: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= a_next5;
+						a6 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S90: begin 		// Iteration 7
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S91: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+						R6_den <= R6_tmp;
+						R7_den <= R7_tmp;
+					 end
+				S92: v_numden <= 1'b1;
+				S93: v_numden <= 1'b0;
+				S94: Rd_tmp <= Rd + 16'h4000;
+				S95: Rd_tmp <= Rd_tmp >>> 15;
+				S96: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S97: div_start <= 1'b1;
+				S98: div_start <= 1'b0;
+				S99: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a6;
+						aR_2 <= a5;
+						aR_3 <= a4;
+						aR_4 <= a3;
+						aR_5 <= a2;
+						aR_6 <= a1;
+					 end
+				S100: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S101: v_rc <= 1'b0;
+				S102: v_cu <= 1'b1;
+				S103: v_cu <= 1'b0;
+				S104: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= a_next5;
+						a6 <= a_next6;
+						a7 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S105: begin 		// Iteration 8
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S106: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+						R6_den <= R6_tmp;
+						R7_den <= R7_tmp;
+						R8_den <= R8_tmp;
+					 end
+				S107: v_numden <= 1'b1;
+				S108: v_numden <= 1'b0;
+				S109: Rd_tmp <= Rd + 16'h4000;
+				S110: Rd_tmp <= Rd_tmp >>> 15;
+				S111: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S112: div_start <= 1'b1;
+				S113: div_start <= 1'b0;
+				S114: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a7;
+						aR_2 <= a6;
+						aR_3 <= a5;
+						aR_4 <= a4;
+						aR_5 <= a3;
+						aR_6 <= a2;
+						aR_7 <= a1;
+					 end
+				S115: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S116: v_rc <= 1'b0;
+				S117: v_cu <= 1'b1;
+				S118: v_cu <= 1'b0;
+				S119: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= a_next5;
+						a6 <= a_next6;
+						a7 <= a_next7;
+						a8 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S120: begin 		// Iteration 9
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S121: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+						R6_den <= R6_tmp;
+						R7_den <= R7_tmp;
+						R8_den <= R8_tmp;
+						R9_den <= R9_tmp;
+					 end
+				S122: v_numden <= 1'b1;
+				S123: v_numden <= 1'b0;
+				S124: Rd_tmp <= Rd + 16'h4000;
+				S125: Rd_tmp <= Rd_tmp >>> 15;
+				S126: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S127: div_start <= 1'b1;
+				S128: div_start <= 1'b0;
+				S129: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a8;
+						aR_2 <= a7;
+						aR_3 <= a6;
+						aR_4 <= a5;
+						aR_5 <= a4;
+						aR_6 <= a3;
+						aR_7 <= a2;
+						aR_8 <= a1;
+					 end
+				S130: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S131: v_rc <= 1'b0;
+				S132: v_cu <= 1'b1;
+				S133: v_cu <= 1'b0;
+				S134: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= a_next5;
+						a6 <= a_next6;
+						a7 <= a_next7;
+						a8 <= a_next8;
+						a9 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S135: begin 		// Iteration 10
+						R_update <= 1'b1;
+						rst_cu <= 1'b0;
+					 end
+				S136: begin
+						R_update <= 1'b0;
+						R2_den <= R2_tmp;
+						R3_den <= R3_tmp;
+						R4_den <= R4_tmp;
+						R5_den <= R5_tmp;
+						R6_den <= R6_tmp;
+						R7_den <= R7_tmp;
+						R8_den <= R8_tmp;
+						R9_den <= R9_tmp;
+						R10_den <= R10_tmp;
+					 end
+				S137: v_numden <= 1'b1;
+				S138: v_numden <= 1'b0;
+				S139: Rd_tmp <= Rd + 16'h4000;
+				S140: Rd_tmp <= Rd_tmp >>> 15;
+				S141: begin
+						A <= -Rn;
+						B <= Rd_tmp;
+					end
+				S142: div_start <= 1'b1;
+				S143: div_start <= 1'b0;
+				S144: begin
+						k_tmp <= Q;
+						div_rst <= 1'b1;
+						aR_1 <= a9;
+						aR_2 <= a8;
+						aR_3 <= a7;
+						aR_4 <= a6;
+						aR_5 <= a5;
+						aR_6 <= a4;
+						aR_7 <= a3;
+						aR_8 <= a2;
+						aR_9 <= a1;
+					 end
+				S145: begin
+						v_rc <= 1'b1;
+						div_rst <= 1'b0;
+					 end
+				S146: v_rc <= 1'b0;
+				S147: v_cu <= 1'b1;
+				S148: v_cu <= 1'b0;
+				S149: begin 
+						a0 <= a_next0;
+						a1 <= a_next1;
+						a2 <= a_next2;
+						a3 <= a_next3;
+						a4 <= a_next4;
+						a5 <= a_next5;
+						a6 <= a_next6;
+						a7 <= a_next7;
+						a8 <= a_next8;
+						a9 <= a_next9;
+						a10 <= b;
+						rst_cu <= 1'b1;
+					 end
+				S150: begin
+						run <= 1'b0;
+						done <= 1'b1;
+						A0 <= a0;
+						A1 <= a1;
+						A2 <= a2;
+						A3 <= a3;
+						A4 <= a4;
+						A5 <= a5;
+						A6 <= a6;
+						A7 <= a7;
+						A8 <= a8;
+						A9 <= a9;
+						A10 <= a10;
+					end
 			endcase
 		end
 endmodule
