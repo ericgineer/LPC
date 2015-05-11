@@ -24,19 +24,23 @@ module reflect_coeff(input wire signed [31:0] k_tmp,
 		if (v)
 		begin
 			k_tmp1 <= k_tmp * 16'h7ff8;
-			k_tmp2 <= k_tmp1 + 16'h4000;
-			k <= k_tmp2 >>> 15;
-			
 			b_tmp1 <= k_tmp + 16'h2;
-			b_tmp2 <= b_tmp1 >>> 2;
-			b <= b_tmp2;
-			
 			v1 <= v;
+		end else
+			v1 <= 1'b0;
+		if(v1)
+		begin
+			k_tmp2 <= k_tmp1 + 16'h4000;
+			b_tmp2 <= b_tmp1 >>> 2;
 			v2 <= v1;
+		end else
+			v2 <= 1'b0;
+		if(v2)
+		begin
+			k <= k_tmp2 >>> 15;
+			b <= b_tmp2;
 			vout  <= v2;
 		end else
-		begin
 			vout <= 1'b0;
-		end
 	end
 endmodule

@@ -94,7 +94,7 @@ module LDR_tb;
 		@(posedge clk)
 		rst <= 1'b0;
 		repeat(10) @(posedge clk);
-		while (count <= 1000)
+		while (count <= 5000)
 		begin
 			v     <= 1'b1;
 			x_in  <= $fscanf(x_read,"%d\n",x);
